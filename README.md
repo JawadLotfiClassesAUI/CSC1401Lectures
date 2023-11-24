@@ -1,7 +1,5 @@
 # CSC1401 Lectures
 
-This is a repository of the files used in the lecture, sorted by chapter.
-
 ### Folder 1 - Basic
 - Preprocessor directives
 - Variable declaration
