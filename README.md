@@ -28,3 +28,11 @@
 - Custom headers
 - Partial compilation
 - MakeFile
+
+### Folder 5 - Pointers
+- Using addresses with the & operator
+- Storing addresses in pointers
+- Data type references (int*, float*, double*, etc.)
+- Input and Output parameters
+- Passing addresses to function (call by reference)
+- Using pointers and indirection in functions
