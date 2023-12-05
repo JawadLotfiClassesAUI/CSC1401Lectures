@@ -1,0 +1,8 @@
+all:
+	gcc -c conversions.c
+	gcc -c program.c
+	gcc conversions.o program.o -o program.exe
+
+clean:
+	del *.o
+	del *.exe
