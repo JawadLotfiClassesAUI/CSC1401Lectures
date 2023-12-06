@@ -36,3 +36,15 @@
 - Input and Output parameters
 - Passing addresses to function (call by reference)
 - Using pointers and indirection in functions
+
+### Folder 6 - Arrays
+- Array is a sequence of contiguous blocks of the same data type
+- Array declaration with fixed size
+- Array is a pointer to the beginning of the Array
+- Array Traversal using loop and pointer arithmetic
+- Square bracket notation
+- Array Initialization
+- Passing arrays to functions
+- Common operations on Arrays
+- Parallel Arrays
+- Sorting operations on Arrays
