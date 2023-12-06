@@ -40,7 +40,7 @@
 ### Folder 6 - Arrays
 - Array is a sequence of contiguous blocks of the same data type
 - Array declaration with fixed size
-- Array is a pointer to the beginning of the Array
+- Array name is a pointer to the beginning of the sequence of blocks
 - Array Traversal using loop and pointer arithmetic
 - Square bracket notation
 - Array Initialization
