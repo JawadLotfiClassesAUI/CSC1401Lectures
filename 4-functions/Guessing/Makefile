@@ -7,6 +7,7 @@ all:
 	gcc -c engine.c
 	gcc game.o engine.o -o program.exe
 
+# The part below creates an optional parameter called clean that deletes all .o and .exe files in the folder
 clean:
 	del *.o
 	del *.exe

@@ -1,8 +1,20 @@
+// This file contains all function definitions required in this project
 #include <stdio.h> // for regular input/output functions
 #include <stdlib.h> // to use the srand and rand functions
-#include <time.h> // to use the time function for random # generation
+#include <time.h> // to use the time function for true random number generation
 #include <math.h> // to use the abs function
 
+// All functions prototypes except for level 1 functions. This is helpful to define our functions in ascending level orders
+int gameStart();
+int clearHighScore(int highScore);
+int difficultyChoice();
+char hintStyle();
+int generateRandom(int max);
+int gameHighLow(int max);
+int gameCloseFar(int max);
+int gameNoHint(int max);
+
+// Level 1 functions - called by the main
 void mainMenu(){
     printf("Main menu:\n"
     "1 - Start a new game\n"
@@ -12,6 +24,26 @@ void mainMenu(){
     "Choice: ");
 }
 
+void handleChoice(char choice, int highScore){
+    int score;
+    switch(choice){
+        case '1':
+            score = gameStart();
+            if (score > highScore)
+                highScore = score;
+            break;
+        case '2':
+            printf("The current high score is %d\n", highScore);break;
+        case '3':
+            highScore = clearHighScore(highScore);break;
+        case '0':
+            printf("Thank you for playing our game. Goodbye!\n");break;
+        default:
+            printf("Your choice is incorrect, try again\n");
+    }
+}
+
+// Level 2 functions - called by handleChoice
 int clearHighScore(int currentValue){
     char choice;
     printf("You are about to reset the high score to zero.\n"
@@ -23,21 +55,12 @@ int clearHighScore(int currentValue){
         return currentValue;
 }
 
-// The next few lines are prototypes of functions called in gameStart()
-int difficultyChoice();
-int generateRandom(int max);
-char hintStyle();
-int gameHighLow(int max);
-int gameCloseFar(int max);
-int gameNoHint(int max); // All 6 of these are level 2 functions
-
 int gameStart(){
     int max, score;
     char hint;
     
-    max = difficultyChoice(); // This function returns the max of the range of random numbers based on the difficulty level
+    max = difficultyChoice();
     hint = hintStyle();
-    // Based on the chosen hint style, we need to call the appropriate function
     switch (hint){
         case '1':
             score = gameHighLow(max); break;
@@ -53,7 +76,7 @@ int gameStart(){
     return score;    
 }
 
-// Below are the definitions for the level 2 functions prototyped above
+// Level 3 functions - called by gameStart
 int difficultyChoice(){
     char difficulty;
     printf("Choose your difficulty level:\n"
@@ -69,12 +92,6 @@ int difficultyChoice(){
         return 1000;
 }
 
-int generateRandom(int max){
-    // Next 2 lines create and return a random integer between 0 and max
-    srand(time(0));
-    return rand() % (max+1);
-}
-
 char hintStyle(){
     char choice;
     do{
@@ -87,7 +104,6 @@ char hintStyle(){
     return choice;    
 }
 
-// The 3 functions below are variations of the same game using different hints styles
 int gameHighLow(int max){
     int guess, random = generateRandom(max), score = max;
     do {
@@ -112,7 +128,7 @@ int gameCloseFar(int max){
     do {
         printf("Enter your guess between 0 and %d: ", max);
         scanf("%d", &guess);
-        distance = abs(guess - random); // the distance needs to be positive
+        distance = abs(guess - random);
         if (distance > max * 0.6){
             printf("You are very far\n");
             score -= max*0.1;
@@ -152,4 +168,11 @@ int gameNoHint(int max){
             printf("Congratulations! Your score is %d\n", score);
     } while (guess != random);
     return score;
+}
+
+// Level 4 function - called by the 3 games
+int generateRandom(int max){
+    // Next 2 lines create and return a random integer between 0 and max
+    srand(time(0));
+    return rand() % (max+1);
 }

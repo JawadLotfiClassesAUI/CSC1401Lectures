@@ -1,7 +1,7 @@
+// The 2 lines below are part of the "include guard" and ensure that compilation doesn't fail because of duplicated includes
 #ifndef ENGINE_H
 #define ENGINE_H
-// Below are prototypes of the level 1 functions called in the main
+// Below are level 1 functions prototypes require by the main
 void mainMenu();
-int gameStart();
-int clearHighScore(int currentValue);
+void handleChoice(char choice, int highScore);
 #endif
